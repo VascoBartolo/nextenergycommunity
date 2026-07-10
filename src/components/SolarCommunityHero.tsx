@@ -10,11 +10,17 @@ import { useEffect, useState } from "react";
 
 const RAYS = Array.from({ length: 12 }, (_, i) => i);
 
-// Energy-sharing arcs: from the producer's roof (P) up and over to each member.
-const arcs = [
-  { id: "arc-1", d: "M112,250 C 168,150 232,170 278,270", packets: 2 },
-  { id: "arc-2", d: "M112,250 C 190,150 306,196 350,300", packets: 2 },
-  { id: "arc-3", d: "M112,250 C 214,120 384,150 424,284", packets: 3 },
+// Consumer buildings are nudged apart on phones (where the graphic — and its
+// labels — scale down) so the labels don't crowd. Desktop keeps offset 0.
+// Order: [Habitação, Comércio, Entidade Pública].
+const PHONE_SHIFT = [-26, -8, 4] as const;
+
+// Energy-sharing arcs from the producer's roof (P) to each member rooftop.
+// `shift` moves each arc's end (and last control point) with its building.
+const buildArcs = (shift: readonly number[]) => [
+  { id: "arc-1", d: `M112,250 C 168,150 ${232 + shift[0]},170 ${278 + shift[0]},270`, packets: 2 },
+  { id: "arc-2", d: `M112,250 C 190,150 ${306 + shift[1]},196 ${350 + shift[1]},300`, packets: 2 },
+  { id: "arc-3", d: `M112,250 C 214,120 ${384 + shift[2]},150 ${424 + shift[2]},284`, packets: 3 },
 ];
 
 const usePrefersReducedMotion = () => {
@@ -29,8 +35,23 @@ const usePrefersReducedMotion = () => {
   return reduced;
 };
 
+const useIsPhone = () => {
+  const [phone, setPhone] = useState(false);
+  useEffect(() => {
+    const m = window.matchMedia("(max-width: 639.98px)");
+    const update = () => setPhone(m.matches);
+    update();
+    m.addEventListener("change", update);
+    return () => m.removeEventListener("change", update);
+  }, []);
+  return phone;
+};
+
 const SolarCommunityHero = () => {
   const reduced = usePrefersReducedMotion();
+  const isPhone = useIsPhone();
+  const shift = isPhone ? PHONE_SHIFT : [0, 0, 0];
+  const arcs = buildArcs(shift);
 
   return (
     <div className="relative mx-auto w-full max-w-xl">
@@ -134,12 +155,12 @@ const SolarCommunityHero = () => {
           </g>
           {/* generation glow at the roof source */}
           <circle cx="112" cy="250" r="6" fill="hsl(38 96% 62%)" className={reduced ? "" : "animate-pulse-glow"} />
-          <text x="112" y="378" textAnchor="middle" fontSize="11" fontWeight="600" className="font-sub" fill="hsl(var(--eco))">Produtor</text>
+          <text x="112" y="378" textAnchor="middle" fontSize="11" fontWeight="600" className="font-sub hero-svg-label" fill="hsl(var(--eco))">Produtor</text>
         </g>
 
         {/* ── MEMBER BUILDINGS ─────────────────────────────── */}
         {/* Habitação — apartment */}
-        <g>
+        <g transform={`translate(${shift[0]} 0)`}>
           <rect x="252" y="272" width="52" height="84" rx="4" fill="hsl(var(--card))" stroke="hsl(var(--border))" strokeWidth="1.5" />
           <rect x="262" y="258" width="32" height="16" rx="2" fill="url(#panel)" stroke="hsl(var(--brand-orange))" strokeWidth="1" opacity="0.95" />
           <g fill="hsl(var(--brand-orange))" opacity="0.28">
@@ -150,20 +171,20 @@ const SolarCommunityHero = () => {
             <rect x="260" y="324" width="12" height="12" rx="1.5" />
             <rect x="284" y="324" width="12" height="12" rx="1.5" />
           </g>
-          <text x="278" y="378" textAnchor="middle" fontSize="11" fontWeight="600" className="font-sub" fill="hsl(var(--muted-foreground))">Habitação</text>
+          <text x="278" y="378" textAnchor="middle" fontSize="11" fontWeight="600" className="font-sub hero-svg-label" fill="hsl(var(--muted-foreground))">Habitação</text>
         </g>
 
         {/* Comércio — shop */}
-        <g>
+        <g transform={`translate(${shift[1]} 0)`}>
           <rect x="320" y="306" width="60" height="50" rx="4" fill="hsl(var(--card))" stroke="hsl(var(--border))" strokeWidth="1.5" />
           <rect x="332" y="292" width="36" height="16" rx="2" fill="url(#panel)" stroke="hsl(var(--brand-orange))" strokeWidth="1" opacity="0.95" />
           <rect x="328" y="318" width="44" height="14" rx="2" fill="hsl(var(--brand-red))" opacity="0.7" />
           <rect x="330" y="336" width="18" height="20" fill="hsl(var(--brand-orange))" opacity="0.25" />
-          <text x="350" y="378" textAnchor="middle" fontSize="11" fontWeight="600" className="font-sub" fill="hsl(var(--muted-foreground))">Comércio</text>
+          <text x="350" y="378" textAnchor="middle" fontSize="11" fontWeight="600" className="font-sub hero-svg-label" fill="hsl(var(--muted-foreground))">Comércio</text>
         </g>
 
         {/* Entidade pública — civic building */}
-        <g>
+        <g transform={`translate(${shift[2]} 0)`}>
           <rect x="396" y="292" width="64" height="64" rx="3" fill="hsl(var(--card))" stroke="hsl(var(--border))" strokeWidth="1.5" />
           <rect x="404" y="278" width="48" height="15" rx="2" fill="url(#panel)" stroke="hsl(var(--brand-orange))" strokeWidth="1" opacity="0.95" />
           <polygon points="396,278 460,278 428,262" fill="hsl(var(--muted))" stroke="hsl(var(--border))" strokeWidth="1" />
@@ -173,7 +194,7 @@ const SolarCommunityHero = () => {
             <line x1="436" y1="300" x2="436" y2="350" />
             <line x1="450" y1="300" x2="450" y2="350" />
           </g>
-          <text x="428" y="378" textAnchor="middle" fontSize="11" fontWeight="600" className="font-sub" fill="hsl(var(--muted-foreground))">Ent. Pública</text>
+          <text x="428" y="378" textAnchor="middle" fontSize="11" fontWeight="600" className="font-sub hero-svg-label" fill="hsl(var(--muted-foreground))">Ent. Pública</text>
         </g>
       </svg>
     </div>

@@ -10,16 +10,10 @@ import {
   PlugZap,
   Leaf,
   Users,
-  ScrollText,
+  ShieldCheck,
   Factory,
   Home,
 } from "lucide-react";
-
-const stats = [
-  { value: "100%", label: "Energia renovável partilhada" },
-  { value: "0€", label: "Custo de adesão para consumidores" },
-  { value: "CER", label: "Autoconsumo coletivo · DL 15/2022" },
-];
 
 const steps = [
   {
@@ -71,26 +65,27 @@ const Index = () => {
   return (
     <Layout>
       {/* HERO */}
-      <section className="relative overflow-hidden bg-dot-grid">
+      <section className="relative overflow-hidden bg-dot-grid flex flex-col min-h-[calc(100svh-5rem)] lg:block lg:min-h-0">
         <div className="absolute inset-0 bg-radial-glow pointer-events-none" />
-        <div className="container relative py-10 lg:py-16">
-          <div className="flex flex-col gap-8 lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
+        <div className="container relative flex flex-1 flex-col py-6 lg:block lg:py-16">
+          <div className="flex flex-1 flex-col gap-4 sm:gap-6 lg:flex-none lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
             {/* Intro text */}
-            <div className="order-1 lg:order-none lg:col-start-1 lg:row-start-1 space-y-6 lg:space-y-7 animate-fade-in-up">
+            <div className="order-1 lg:order-none lg:col-start-1 lg:row-start-1 space-y-4 sm:space-y-5 lg:space-y-7 animate-fade-in-up">
               <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-card border border-primary/20 text-[11px] sm:text-xs font-sub font-semibold tracking-wider uppercase shadow-soft">
                 <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse-glow shrink-0" />
-                Autoconsumo Coletivo · Comunidades de Energia Renovável
+                Comunidades de Energia Renovável
               </span>
-              <h1 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl leading-[1.06] tracking-tight">
+              <h1 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl leading-[1.08] sm:leading-[1.06] tracking-tight">
                 Produza, consuma e partilhe <span className="text-gradient-brand">energia renovável</span> com a sua comunidade.
               </h1>
-              <p className="text-[15px] sm:text-base lg:text-lg text-muted-foreground max-w-xl font-body leading-relaxed">
+              <p className="text-base lg:text-lg text-muted-foreground max-w-xl font-body leading-snug sm:leading-relaxed">
                 A Nextenergy Community desenvolve e gere Comunidades de Energia Renovável, ligando quem produz a quem consome — energia local, mais limpa e mais barata para todos.
               </p>
             </div>
 
-            {/* Hero graphic — sits between text and buttons on mobile, right column on desktop */}
-            <div className="order-2 lg:order-none lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:self-center relative">
+            {/* Hero graphic — grows to fill the space between text and buttons on
+                mobile so the hero fills the viewport; right column on desktop */}
+            <div className="order-2 lg:order-none lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:self-center relative flex flex-1 items-center justify-center lg:block lg:flex-none mx-auto w-full max-w-xs sm:max-w-sm lg:max-w-none">
               <SolarCommunityHero />
             </div>
 
@@ -100,7 +95,7 @@ const Index = () => {
                 asChild
                 variant="brand"
                 size="xl"
-                className="flex-1 sm:flex-none min-w-0 px-4 sm:px-10 text-sm sm:text-base whitespace-nowrap leading-tight [&_svg]:hidden sm:[&_svg]:inline-block"
+                className="h-12 sm:h-14 flex-1 sm:flex-none min-w-0 px-4 sm:px-10 text-sm sm:text-base whitespace-nowrap leading-tight [&_svg]:hidden sm:[&_svg]:inline-block"
               >
                 <Link to="/contact">Aderir à comunidade <ArrowRight /></Link>
               </Button>
@@ -108,24 +103,12 @@ const Index = () => {
                 asChild
                 variant="brand-outline"
                 size="xl"
-                className="flex-1 sm:flex-none min-w-0 px-4 sm:px-10 text-sm sm:text-base whitespace-nowrap leading-tight"
+                className="h-12 sm:h-14 flex-1 sm:flex-none min-w-0 px-4 sm:px-10 text-sm sm:text-base whitespace-nowrap leading-tight"
               >
-                <Link to="/o-nosso-papel">Como funciona</Link>
+                <a href="#como-funciona">Como funciona</a>
               </Button>
             </div>
           </div>
-        </div>
-
-        {/* Stats — inline row with dividers */}
-        <div className="container relative pb-12">
-          <ScrollReveal className="mx-auto max-w-3xl flex flex-col sm:flex-row rounded-2xl border border-border bg-card/70 backdrop-blur-sm divide-y sm:divide-y-0 sm:divide-x divide-border overflow-hidden shadow-soft">
-            {stats.map((s) => (
-              <div key={s.label} className="flex-1 px-8 py-7 text-center hover:bg-gradient-brand-soft transition-colors duration-500">
-                <div className="font-display text-4xl md:text-5xl font-bold text-gradient-brand">{s.value}</div>
-                <div className="mt-2 text-xs font-sub uppercase tracking-wider text-muted-foreground">{s.label}</div>
-              </div>
-            ))}
-          </ScrollReveal>
         </div>
       </section>
 
@@ -156,7 +139,7 @@ const Index = () => {
           ))}
         </div>
 
-        <ScrollReveal as="p" className="mt-8 max-w-3xl text-sm text-muted-foreground font-body border-l-2 border-primary/40 pl-4">
+        <ScrollReveal as="p" className="mt-8 text-xs md:text-sm text-muted-foreground font-body border-l-2 border-primary/40 pl-4 lg:whitespace-nowrap">
           Abrange as figuras legais de Autoconsumo Coletivo e Comunidades de Energia Renovável, ao abrigo do{" "}
           <a
             href="https://diariodarepublica.pt/dr/detalhe/decreto-lei/15-2022-177634016"
@@ -170,7 +153,7 @@ const Index = () => {
       </section>
 
       {/* HOW IT WORKS — dark band */}
-      <section className="bg-brand-dark text-background py-14 lg:py-20 relative overflow-hidden bg-dot-grid-light">
+      <section id="como-funciona" className="scroll-mt-24 bg-brand-dark text-background py-14 lg:py-20 relative overflow-hidden bg-dot-grid-light">
         <div className="absolute inset-0 bg-gradient-brand opacity-10" />
         <div className="container relative">
           <ScrollReveal className="max-w-2xl mb-14">
@@ -213,9 +196,17 @@ const Index = () => {
             <ScrollReveal key={m.to} delay={i * 120}>
               <Link
                 to={m.to}
-                className="group relative h-full p-8 md:p-10 rounded-3xl bg-card border border-border hover:border-primary/40 hover:-translate-y-1 hover:shadow-soft transition-all duration-500 overflow-hidden flex flex-col"
+                className="group relative h-full p-8 md:p-10 rounded-3xl bg-card border border-border hover:border-primary/40 hover:-translate-y-1 hover:shadow-soft transition-all duration-500 flex flex-col"
               >
-                <div className={`absolute -top-16 -right-16 w-48 h-48 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${m.accent === "eco" ? "bg-gradient-eco" : "bg-gradient-brand"}`} />
+                {/* dedicated (non-transformed) clip layer: keeps the card's
+                    corner radius while the top-right glow fades in on hover —
+                    avoids the squared corner caused by overflow-hidden +
+                    border-radius meeting the hover transform */}
+                <div className="pointer-events-none absolute inset-0 rounded-3xl overflow-hidden">
+                  <div
+                    className={`absolute -top-20 -right-20 w-48 h-48 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${m.accent === "eco" ? "bg-gradient-eco" : "bg-gradient-brand"}`}
+                  />
+                </div>
                 <div className="relative flex items-center gap-4 mb-6">
                   <div className={`w-14 h-14 rounded-2xl flex items-center justify-center text-white ${m.accent === "eco" ? "bg-gradient-eco" : "bg-gradient-brand"}`}>
                     <m.icon size={26} />
@@ -243,35 +234,21 @@ const Index = () => {
         </div>
       </section>
 
-      {/* OUR ROLE TEASER */}
+      {/* O NOSSO PAPEL — entity that manages the community (EGAC) */}
       <section className="container pb-4 lg:pb-12">
-        <ScrollReveal className="relative rounded-3xl overflow-hidden bg-card border border-border shadow-soft p-8 md:p-12 grid lg:grid-cols-[1.4fr_1fr] gap-8 items-center">
-          <div>
-            <div className="inline-flex items-center gap-2 text-xs font-sub font-semibold uppercase tracking-widest text-eco mb-3">
-              <ScrollText size={14} /> O nosso papel
+        <ScrollReveal className="relative overflow-hidden rounded-3xl bg-brand-dark text-background p-8 md:p-14">
+          <div className="absolute inset-0 bg-dot-grid-light pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-brand opacity-10 pointer-events-none" />
+          <div className="relative max-w-3xl">
+            <div className="inline-flex items-center gap-2 text-xs font-sub font-semibold uppercase tracking-widest text-primary mb-4">
+              <ShieldCheck size={14} /> O nosso papel
             </div>
-            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight">
-              Da viabilidade à gestão, a Nextenergy trata de tudo.
+            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight leading-tight">
+              Gestor de confiança da <span className="text-gradient-brand">sua comunidade</span>.
             </h2>
-            <p className="mt-4 text-muted-foreground font-body leading-relaxed max-w-xl">
-              Estudo de viabilidade, dimensionamento, instalação dos painéis, licenciamento e gestão contínua da comunidade — com uma plataforma que mostra a produção, a poupança e o impacto de cada membro.
+            <p className="mt-5 text-base md:text-lg text-background/70 font-body leading-relaxed">
+              A Nextenergy Community atua como Entidade Gestora de Autoconsumo Coletivo (EGAC), assumindo a gestão operacional, legal e técnica da comunidade de energia em nome dos seus membros. Os membros produzem, consomem e partilham energia — nós tratamos do resto.
             </p>
-            <Button asChild variant="brand-outline" size="lg" className="mt-8">
-              <Link to="/o-nosso-papel">Conhecer o nosso papel <ArrowRight /></Link>
-            </Button>
-          </div>
-          <div className="grid grid-cols-2 gap-4">
-            {[
-              { k: "Estudo", v: "Viabilidade e dimensionamento" },
-              { k: "Instalação", v: "Painéis chave-na-mão" },
-              { k: "Licenciamento", v: "Todo o processo legal" },
-              { k: "Gestão", v: "Plataforma e apoio contínuo" },
-            ].map((b) => (
-              <div key={b.k} className="p-5 rounded-2xl bg-background border border-border">
-                <div className="text-xs font-sub uppercase tracking-wider text-primary">{b.k}</div>
-                <div className="mt-1 text-sm font-body text-muted-foreground">{b.v}</div>
-              </div>
-            ))}
           </div>
         </ScrollReveal>
       </section>

@@ -8,7 +8,6 @@ const links = [
   { to: "/", label: "Início" },
   { to: "/produtor", label: "Membro Produtor" },
   { to: "/consumidor", label: "Membro Consumidor" },
-  { to: "/o-nosso-papel", label: "O Nosso Papel" },
   { to: "/contact", label: "Contactos" },
 ];
 
@@ -54,8 +53,14 @@ const Navbar = () => {
           {open ? <X /> : <Menu />}
         </button>
       </div>
-      {open && (
-        <div className="lg:hidden bg-background/95 backdrop-blur-xl border-b border-border animate-fade-in">
+      {/* Mobile menu — always mounted so it animates both open and closed */}
+      <div
+        className={`lg:hidden overflow-hidden transition-[max-height,opacity] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+          open ? "max-h-96 opacity-100" : "max-h-0 opacity-0 pointer-events-none"
+        }`}
+        aria-hidden={!open}
+      >
+        <div className="bg-background/95 backdrop-blur-xl border-b border-border">
           <div className="container py-4 flex flex-col gap-2">
             {links.map((l) => (
               <NavLink key={l.to} to={l.to} end={l.to === "/"} onClick={() => setOpen(false)}
@@ -66,7 +71,7 @@ const Navbar = () => {
             <Button asChild variant="brand" className="mt-2"><NavLink to="/contact" onClick={() => setOpen(false)}>Aderir à comunidade</NavLink></Button>
           </div>
         </div>
-      )}
+      </div>
     </header>
   );
 };

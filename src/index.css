@@ -150,6 +150,13 @@
   animation: ray-pulse 3.4s ease-in-out infinite;
 }
 
+/* Hero SVG member labels — slightly larger on phones (where the graphic scales
+   down), unchanged on desktop. Values are SVG user units. */
+.hero-svg-label { font-size: 11px; }
+@media (max-width: 639.98px) {
+  .hero-svg-label { font-size: 13.5px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {
