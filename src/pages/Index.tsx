@@ -11,6 +11,7 @@ import {
   Leaf,
   Users,
   ShieldCheck,
+  ScrollText,
   Factory,
   Home,
 } from "lucide-react";
@@ -234,8 +235,9 @@ const Index = () => {
         </div>
       </section>
 
-      {/* O NOSSO PAPEL — entity that manages the community (EGAC) */}
-      <section className="container pb-4 lg:pb-12">
+      {/* O NOSSO PAPEL */}
+      <section className="container pb-4 lg:pb-12 space-y-6">
+        {/* 1 — EGAC banner: the entity that manages the community */}
         <ScrollReveal className="relative overflow-hidden rounded-3xl bg-brand-dark text-background p-8 md:p-14">
           <div className="absolute inset-0 bg-dot-grid-light pointer-events-none" />
           <div className="absolute inset-0 bg-gradient-brand opacity-10 pointer-events-none" />
@@ -249,6 +251,34 @@ const Index = () => {
             <p className="mt-5 text-base md:text-lg text-background/70 font-body leading-relaxed">
               A Nextenergy Community atua como Entidade Gestora de Autoconsumo Coletivo (EGAC), assumindo a gestão operacional, legal e técnica da comunidade de energia em nome dos seus membros. Os membros produzem, consomem e partilham energia — nós tratamos do resto.
             </p>
+          </div>
+        </ScrollReveal>
+
+        {/* 2 — from feasibility to management */}
+        <ScrollReveal className="relative rounded-3xl overflow-hidden bg-card border border-border shadow-soft p-8 md:p-12 grid lg:grid-cols-[1.4fr_1fr] gap-8 items-center">
+          <div>
+            <div className="inline-flex items-center gap-2 text-xs font-sub font-semibold uppercase tracking-widest text-eco mb-3">
+              <ScrollText size={14} /> Do estudo à gestão
+            </div>
+            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight">
+              Da viabilidade à gestão, a Nextenergy trata de tudo.
+            </h2>
+            <p className="mt-4 text-muted-foreground font-body leading-relaxed max-w-xl">
+              Estudo de viabilidade, dimensionamento, instalação dos painéis, licenciamento e gestão contínua da comunidade — com uma plataforma que mostra a produção, a poupança e o impacto de cada membro.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            {[
+              { k: "Estudo", v: "Viabilidade e dimensionamento" },
+              { k: "Instalação", v: "Painéis chave-na-mão" },
+              { k: "Licenciamento", v: "Todo o processo legal" },
+              { k: "Gestão", v: "Plataforma e apoio contínuo" },
+            ].map((b) => (
+              <div key={b.k} className="p-5 rounded-2xl bg-background border border-border">
+                <div className="text-xs font-sub uppercase tracking-wider text-primary">{b.k}</div>
+                <div className="mt-1 text-sm font-body text-muted-foreground">{b.v}</div>
+              </div>
+            ))}
           </div>
         </ScrollReveal>
       </section>
