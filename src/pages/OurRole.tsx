@@ -87,7 +87,7 @@ const OurRole = () => (
     <section className="relative bg-dot-grid overflow-hidden">
       <div className="absolute inset-0 bg-radial-glow pointer-events-none" />
       <div className="container relative pt-12 pb-8">
-        <div className="space-y-6 animate-fade-in-up">
+        <div className="max-w-3xl space-y-6 animate-fade-in-up">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-card border border-primary/20 text-xs font-sub font-semibold tracking-wider uppercase shadow-soft text-primary">
             <ShieldCheck size={14} /> O nosso papel
           </div>
