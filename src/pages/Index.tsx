@@ -238,20 +238,14 @@ const Index = () => {
       {/* O NOSSO PAPEL */}
       <section className="container pb-4 lg:pb-12 space-y-6">
         {/* 1 — EGAC banner: the entity that manages the community */}
-        <ScrollReveal className="relative overflow-hidden rounded-3xl bg-brand-dark text-background p-8 md:p-14">
-          <div className="absolute inset-0 bg-dot-grid-light pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-brand opacity-10 pointer-events-none" />
-          <div className="relative max-w-3xl">
-            <div className="inline-flex items-center gap-2 text-xs font-sub font-semibold uppercase tracking-widest text-primary mb-4">
-              <ShieldCheck size={14} /> O nosso papel
-            </div>
-            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight leading-tight">
-              Gestor de confiança da <span className="text-gradient-brand">sua comunidade</span>.
-            </h2>
-            <p className="mt-5 text-base md:text-lg text-background/70 font-body leading-relaxed">
-              A Nextenergy Community atua como Entidade Gestora de Autoconsumo Coletivo (EGAC), assumindo a gestão operacional, legal e técnica da comunidade de energia em nome dos seus membros. Os membros produzem, consomem e partilham energia — nós tratamos do resto.
-            </p>
-          </div>
+        <ScrollReveal className="max-w-2xl mb-14">
+          <div className="text-xs font-sub font-semibold uppercase tracking-widest text-primary mb-3">O nosso papel</div>
+          <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight">
+             Gestor de confiança da <span className="text-gradient-brand">sua comunidade</span>.
+          </h2>
+          <p className="mt-4 text-muted-foreground font-body">
+            A Nextenergy Community atua como Entidade Gestora de Autoconsumo Coletivo (EGAC), assumindo a gestão operacional, legal e técnica da comunidade de energia em nome dos seus membros. Os membros produzem, consomem e partilham energia — nós tratamos do resto.
+          </p>
         </ScrollReveal>
 
         {/* 2 — from feasibility to management */}
@@ -266,6 +260,9 @@ const Index = () => {
             <p className="mt-4 text-muted-foreground font-body leading-relaxed max-w-xl">
               Estudo de viabilidade, dimensionamento, instalação dos painéis, licenciamento e gestão contínua da comunidade — com uma plataforma que mostra a produção, a poupança e o impacto de cada membro.
             </p>
+            <Link to="/o-nosso-papel" className="inline-flex items-center gap-2 mt-6 text-sm font-sub font-semibold text-primary hover:gap-3 transition-all">
+              Saber mais <ArrowRight size={16} />
+            </Link>
           </div>
           <div className="grid grid-cols-2 gap-4">
             {[
