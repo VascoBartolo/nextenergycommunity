@@ -261,7 +261,7 @@ const Index = () => {
               Estudo de viabilidade, dimensionamento, instalação dos painéis, licenciamento e gestão contínua da comunidade — com uma plataforma que mostra a produção, a poupança e o impacto de cada membro.
             </p>
             <Link to="/o-nosso-papel" className="inline-flex items-center gap-2 mt-6 text-sm font-sub font-semibold text-primary hover:gap-3 transition-all">
-              Saber mais <ArrowRight size={16} />
+              O nosso papel <ArrowRight size={16} />
             </Link>
           </div>
           <div className="grid grid-cols-2 gap-4">
