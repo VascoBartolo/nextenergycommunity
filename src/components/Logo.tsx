@@ -17,7 +17,7 @@ const Logo = ({ className = "", imgClassName = "" }: LogoProps) => {
       <img
         src={communityLogo}
         alt="Nextenergy Community"
-        className={`block h-9 md:h-10 w-auto object-contain ${imgClassName}`}
+        className={`block h-10 md:h-11 w-auto object-contain ${imgClassName}`}
       />
     </Link>
   );
