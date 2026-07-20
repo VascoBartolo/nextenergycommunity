@@ -47,38 +47,6 @@ const Footer = () => (
         <span>NIPC: 518 423 687</span>
       </div>
     </div>
-
-    {/* Barras de apoios / cofinanciamento (clicáveis → fichas de projeto em PDF) */}
-    <div className="bg-white">
-      <div className="container py-6 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-x-12 gap-y-5">
-        <Link
-          to="/prr"
-          aria-label="Ver a ficha de projeto PRR"
-          className="w-full max-w-[460px] transition-opacity hover:opacity-80"
-        >
-          <img
-            src="/barra-acores-prr.png"
-            alt="PRR — Plano de Recuperação e Resiliência, Governo dos Açores, República Portuguesa, Financiado pela União Europeia (NextGenerationEU)"
-            className="w-full h-auto object-contain"
-            loading="lazy"
-          />
-        </Link>
-        <a
-          href="/2030.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Abrir a ficha de projeto 2030 (PDF)"
-          className="w-full max-w-[460px] transition-opacity hover:opacity-80"
-        >
-          <img
-            src="/barra-construir-2030-removebg.png"
-            alt="Construir 2030 — Açores 2030, Governo dos Açores, Portugal 2030, Cofinanciado pela União Europeia"
-            className="w-full h-auto object-contain"
-            loading="lazy"
-          />
-        </a>
-      </div>
-    </div>
   </footer>
 );
 
