@@ -38,7 +38,9 @@ const Contact = () => {
         <div className="absolute inset-0 bg-radial-glow pointer-events-none" />
         <div className="container relative pt-12 pb-8">
           <div className="space-y-6 animate-fade-in-up">
-            <div className="text-xs font-sub font-semibold uppercase tracking-widest text-primary">Contactos</div>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-card border border-primary/20 text-xs font-sub font-semibold tracking-wider uppercase shadow-soft text-primary">
+            <Mail size={14} /> Contactos
+          </div>
             <h1 className="font-display text-4xl md:text-6xl font-bold tracking-tight leading-[1.05]">
               Junte-se à sua <span className="text-gradient-brand">comunidade</span>.
             </h1>
