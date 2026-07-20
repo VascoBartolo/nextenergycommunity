@@ -1,13 +1,15 @@
 import Layout from "@/components/Layout";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Button } from "@/components/ui/button";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, HandCoins } from "lucide-react";
 
 const PRRProjeto = () => (
   <Layout>
     <section className="container pt-20 pb-12">
       <div className="max-w-3xl space-y-6 animate-fade-in-up">
-        <div className="text-xs font-sub font-semibold uppercase tracking-widest text-primary">Financiamento</div>
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-card border border-primary/20 text-xs font-sub font-semibold tracking-wider uppercase shadow-soft text-primary">
+            <HandCoins size={14} /> Financiamento
+          </div>
         <h1 className="font-display text-5xl md:text-6xl font-bold tracking-tight leading-[1.05]">
           Transição Digital <span className="text-gradient-brand">Empresarial</span>.
         </h1>
