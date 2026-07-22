@@ -35,8 +35,8 @@ const Footer = () => (
       <div>
         <h4 className="font-sub font-semibold mb-4 text-sm tracking-wider uppercase">Contactos</h4>
         <ul className="space-y-3 text-sm text-background/70">
-          <li className="flex items-center gap-2"><Mail size={14} className="text-primary" /> geral@nextenergycommunity.pt</li>
-          <li className="flex items-center gap-2"><Globe size={14} className="text-primary" /> www.nextenergycommunity.pt</li>
+          <li className="flex items-center gap-2"><Mail size={14} className="text-primary" /> geral@nextcommunity.pt</li>
+          <li className="flex items-center gap-2"><Globe size={14} className="text-primary" /> www.nextcommunity.pt</li>
           <li className="flex items-center gap-2"><MapPin size={14} className="text-primary" /> Portugal</li>
         </ul>
       </div>

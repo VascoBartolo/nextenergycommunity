@@ -11,8 +11,8 @@ import { toast } from "sonner";
 const profiles = ["Quero ser produtor", "Quero ser consumidor", "Entidade pública", "Outro"];
 
 const contactCards = [
-  { icon: Mail, title: "Email", value: "geral@nextenergycommunity.pt", href: "mailto:geral@nextenergycommunity.pt" },
-  { icon: Globe, title: "Website", value: "www.nextenergycommunity.pt", href: "https://www.nextenergycommunity.pt" },
+  { icon: Mail, title: "Email", value: "geral@nextcommunity.pt", href: "mailto:geral@nextcommunity.pt" },
+  { icon: Globe, title: "Website", value: "www.nextcommunity.pt", href: "https://www.nextcommunity.pt" },
   { icon: Building2, title: "Nextenergy Community, Lda", value: "NIPC: 518 423 687", href: undefined },
   { icon: MapPin, title: "Onde estamos", value: "Portugal", href: undefined },
 ];
@@ -72,7 +72,7 @@ const Contact = () => {
             </ScrollReveal>
           ))}
 
-          <ScrollReveal delay={contactCards.length * 90} className="p-6 rounded-2xl bg-gradient-eco text-eco-foreground lg:flex-1 lg:flex lg:flex-col lg:justify-center">
+          <ScrollReveal delay={contactCards.length * 90} className="p-6 rounded-2xl bg-gradient-brand text-eco-foreground lg:flex-1 lg:flex lg:flex-col lg:justify-center">
             <div className="font-sub font-semibold mb-2">Sem custo, sem compromisso</div>
             <div className="text-sm opacity-90 font-body">A adesão como consumidor não tem qualquer custo e o benefício aparece automaticamente na fatura.</div>
           </ScrollReveal>

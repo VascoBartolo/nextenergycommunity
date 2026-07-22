@@ -36,7 +36,7 @@ const Producer = () => (
   <Layout>
     {/* HERO */}
     <section className="relative bg-dot-grid overflow-hidden">
-      <div className="absolute inset-0 bg-radial-glow pointer-events-none" />
+      <div className="absolute inset-0 bg-radial-glow-eco pointer-events-none" />
       <div className="container relative pt-12 pb-8">
         <div className="max-w-3xl space-y-6 animate-fade-in-up">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-card border border-eco/30 text-xs font-sub font-semibold tracking-wider uppercase shadow-soft text-eco">
@@ -48,7 +48,7 @@ const Producer = () => (
           <p className="text-[15px] sm:text-base lg:text-lg text-muted-foreground font-body leading-relaxed">
             Qualquer pessoa singular ou coletiva que instala e opera uma unidade de produção de energia renovável — painéis fotovoltaicos — num espaço da sua propriedade ou gestão, e que partilha o excedente dessa produção com os restantes membros da comunidade.
           </p>
-          <Button asChild variant="brand" size="xl">
+          <Button asChild variant="brand" size="xl" className="bg-gradient-eco shadow-eco">
             <Link to="/contact">Quero produzir energia <ArrowRight /></Link>
           </Button>
         </div>
@@ -84,9 +84,9 @@ const Producer = () => (
       <div className="absolute inset-0 bg-gradient-eco opacity-10" />
       <div className="container relative grid lg:grid-cols-2 gap-12 items-center">
         <ScrollReveal>
-          <div className="text-xs font-sub font-semibold uppercase tracking-widest text-primary mb-3">Como funciona</div>
+          <div className="text-xs font-sub font-semibold uppercase tracking-widest text-eco mb-3">Como funciona</div>
           <h2 className="font-display text-3xl md:text-4xl font-bold leading-tight">
-            Consome primeiro, <span className="text-gradient-brand">partilha o resto</span>.
+            Consome primeiro, <span className="text-gradient-eco">partilha o resto</span>.
           </h2>
           <p className="mt-5 text-background/70 font-body leading-relaxed max-w-lg">
             O membro produtor consome primeiro a energia que produz (autoconsumo). O excedente — o que sobra depois do seu próprio consumo — é injetado na rede e distribuído pelos membros consumidores da comunidade.
@@ -103,7 +103,7 @@ const Producer = () => (
             </div>
           </ScrollReveal>
           <ScrollReveal delay={200} className="flex gap-5 p-6 rounded-2xl bg-background/5 border border-background/10">
-            <div className="w-12 h-12 rounded-xl bg-gradient-brand flex items-center justify-center shrink-0 text-primary-foreground">
+            <div className="w-12 h-12 rounded-xl bg-gradient-eco flex items-center justify-center shrink-0 text-primary-foreground">
               <Share2 size={22} />
             </div>
             <div>

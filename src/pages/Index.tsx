@@ -43,15 +43,6 @@ const definitionPoints = [
 
 const memberTypes = [
   {
-    icon: Factory,
-    to: "/produtor",
-    eyebrow: "Membro Produtor",
-    title: "Tem espaço para produzir energia?",
-    desc: "Instale painéis sem investimento inicial, pague apenas o que consome e rentabilize o excedente partilhado com a comunidade.",
-    points: ["0% de investimento inicial", "Paga só o que consome", "Rentabiliza o excedente"],
-    accent: "eco" as const,
-  },
-  {
     icon: Home,
     to: "/consumidor",
     eyebrow: "Membro Consumidor",
@@ -60,6 +51,15 @@ const memberTypes = [
     points: ["Sem custo de adesão", "Desconto automático na fatura", "Mantém a sua comercializadora"],
     accent: "brand" as const,
   },
+  {
+    icon: Factory,
+    to: "/produtor",
+    eyebrow: "Membro Produtor",
+    title: "Tem espaço para produzir energia?",
+    desc: "Instale painéis sem investimento inicial, pague apenas o que consome e rentabilize o excedente partilhado com a comunidade.",
+    points: ["0% de investimento inicial", "Paga só o que consome", "Rentabiliza o excedente"],
+    accent: "eco" as const,
+  }
 ];
 
 const Index = () => {
@@ -251,7 +251,7 @@ const Index = () => {
         {/* 2 — from feasibility to management */}
         <ScrollReveal className="relative rounded-3xl overflow-hidden bg-card border border-border shadow-soft p-8 md:p-12 grid lg:grid-cols-[1.4fr_1fr] gap-8 items-center">
           <div>
-            <div className="inline-flex items-center gap-2 text-xs font-sub font-semibold uppercase tracking-widest text-eco mb-3">
+            <div className="inline-flex items-center gap-2 text-xs font-sub font-semibold uppercase tracking-widest text-primary mb-3">
               <ScrollText size={14} /> Do estudo à gestão
             </div>
             <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight">

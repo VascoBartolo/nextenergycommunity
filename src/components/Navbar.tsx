@@ -6,8 +6,8 @@ import { Button } from "@/components/ui/button";
 
 const links = [
   { to: "/", label: "Início" },
-  { to: "/produtor", label: "Membro Produtor" },
   { to: "/consumidor", label: "Membro Consumidor" },
+  { to: "/produtor", label: "Membro Produtor" },
   { to: "/o-nosso-papel", label: "O Nosso Papel" },
   { to: "/contact", label: "Contactos" },
 ];

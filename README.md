@@ -46,4 +46,4 @@ npm test         # vitest
 
 ---
 
-© Nextenergy Community, Lda — NIPC 518 423 687 · www.nextenergycommunity.pt
+© Nextenergy Community, Lda — NIPC 518 423 687 · www.nextcommunity.pt
