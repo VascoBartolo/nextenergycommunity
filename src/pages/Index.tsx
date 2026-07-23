@@ -66,9 +66,9 @@ const Index = () => {
   return (
     <Layout>
       {/* HERO */}
-      <section className="relative overflow-hidden bg-dot-grid flex flex-col min-h-[calc(100svh-5rem)] lg:block lg:min-h-0">
+      <section className="relative overflow-hidden bg-dot-grid flex flex-col min-h-[calc(100svh-5rem)]">
         <div className="absolute inset-0 bg-radial-glow pointer-events-none" />
-        <div className="container relative flex flex-1 flex-col py-6 lg:block lg:py-16">
+        <div className="container relative flex flex-1 flex-col justify-center py-6 lg:py-16">
           <div className="flex flex-1 flex-col gap-4 sm:gap-6 lg:flex-none lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
             {/* Intro text */}
             <div className="order-1 lg:order-none lg:col-start-1 lg:row-start-1 space-y-4 sm:space-y-5 lg:space-y-7 animate-fade-in-up">
