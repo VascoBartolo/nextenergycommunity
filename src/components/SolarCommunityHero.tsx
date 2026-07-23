@@ -60,18 +60,24 @@ const SolarCommunityHero = () => {
 
       <svg viewBox="0 0 480 400" className="relative w-full h-auto" role="img" aria-label="Uma comunidade de energia: o sol alimenta os painéis do produtor, que partilha energia com os membros">
         <defs>
+          {/* Literal HSL (not var(--brand-orange)/var(--brand-red)) so the sun,
+              rays and arcs paint correctly on the very first frame — these two
+              brand colors are theme-invariant (unchanged in .dark), so nothing
+              is lost, and the SVG no longer waits on the stylesheet to resolve
+              CSS custom properties, which was causing a visible flash/artifact
+              on refresh before the colors "popped" in. */}
           <radialGradient id="sun" cx="50%" cy="50%" r="50%">
             <stop offset="0%" stopColor="hsl(38 96% 62%)" />
-            <stop offset="60%" stopColor="hsl(var(--brand-orange))" />
-            <stop offset="100%" stopColor="hsl(var(--brand-red))" />
+            <stop offset="60%" stopColor="hsl(22 87% 59%)" />
+            <stop offset="100%" stopColor="hsl(351 73% 48%)" />
           </radialGradient>
           <linearGradient id="ray" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="hsl(var(--brand-orange))" />
-            <stop offset="100%" stopColor="hsl(var(--brand-red))" />
+            <stop offset="0%" stopColor="hsl(22 87% 59%)" />
+            <stop offset="100%" stopColor="hsl(351 73% 48%)" />
           </linearGradient>
           <linearGradient id="arcStroke" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="hsl(var(--brand-orange))" />
-            <stop offset="100%" stopColor="hsl(var(--brand-red))" />
+            <stop offset="0%" stopColor="hsl(22 87% 59%)" />
+            <stop offset="100%" stopColor="hsl(351 73% 48%)" />
           </linearGradient>
           <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
             <stop offset="0%" stopColor="hsl(214 32% 24%)" />
@@ -88,7 +94,7 @@ const SolarCommunityHero = () => {
 
         {/* ── SUN ──────────────────────────────────────────── */}
         <g>
-          <circle cx="104" cy="92" r="58" fill="hsl(var(--brand-orange))" opacity="0.16" filter="url(#soft)" />
+          <circle cx="104" cy="92" r="58" fill="hsl(22 87% 59%)" opacity="0.16" filter="url(#soft)" />
           <g
             className={reduced ? "" : "animate-spin"}
             style={{ animationDuration: "48s", transformBox: "fill-box", transformOrigin: "center" }}
@@ -123,10 +129,15 @@ const SolarCommunityHero = () => {
         {arcs.map((arc) => (
           <path key={arc.id} id={arc.id} d={arc.d} fill="none" stroke="url(#arcStroke)" strokeWidth="1.5" strokeDasharray="2 7" opacity="0.4" />
         ))}
+        {/* `opacity="0"` on each packet (not just inside its <animate>) matters:
+            a packet with a delayed `begin` sits at its default (0,0) position —
+            off in the corner of the scene — until its animateMotion starts.
+            Without a static base opacity, it renders fully visible there for a
+            frame, which was exactly the stray-dot artifact seen on refresh. */}
         {!reduced &&
           arcs.map((arc) =>
             Array.from({ length: arc.packets }, (_, k) => (
-              <circle key={`${arc.id}-p${k}`} r="4" fill="hsl(38 96% 62%)">
+              <circle key={`${arc.id}-p${k}`} r="4" fill="hsl(38 96% 62%)" opacity="0">
                 <animate attributeName="opacity" values="0;1;1;0" dur="3.2s" begin={`${(k / arc.packets) * 3.2}s`} repeatCount="indefinite" />
                 <animateMotion dur="3.2s" begin={`${(k / arc.packets) * 3.2}s`} repeatCount="indefinite" rotate="auto">
                   <mpath href={`#${arc.id}`} />
