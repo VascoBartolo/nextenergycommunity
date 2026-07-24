@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import Logo from "./Logo";
@@ -14,6 +14,8 @@ const links = [
 ];
 
 const Navbar = () => {
+  const { pathname } = useLocation();
+  const isHome = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -23,8 +25,12 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Only the home page has a dark hero behind the fixed header, so only
+  // there does it make sense to go transparent / use light text pre-scroll.
+  const transparent = isHome && !scrolled;
+
   return (
-    <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${scrolled ? "bg-background/80 backdrop-blur-xl border-b border-border/50" : "bg-transparent"}`}>
+    <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${transparent ? "bg-transparent" : "bg-background/80 backdrop-blur-xl border-b border-border/50"}`}>
       <div className="container flex items-center justify-between h-20">
         <Logo />
         <nav className="hidden lg:flex items-center gap-1">
@@ -36,8 +42,8 @@ const Navbar = () => {
               className={({ isActive }) =>
                 `relative px-4 py-2 text-sm font-medium font-sub transition-colors ${
                   isActive
-                    ? scrolled ? "text-foreground" : "text-background"
-                    : scrolled ? "text-muted-foreground hover:text-foreground" : "text-background/75 hover:text-background"
+                    ? transparent ? "text-background" : "text-foreground"
+                    : transparent ? "text-background/75 hover:text-background" : "text-muted-foreground hover:text-foreground"
                 }`
               }
             >
@@ -55,7 +61,7 @@ const Navbar = () => {
             <NavLink to="/contact">Aderir à comunidade</NavLink>
           </Button>
         </div>
-        <button onClick={() => setOpen(!open)} className={`lg:hidden p-2 transition-colors ${scrolled ? "text-foreground" : "text-background"}`} aria-label={open ? "Fechar menu" : "Abrir menu"}>
+        <button onClick={() => setOpen(!open)} className={`lg:hidden p-2 transition-colors ${transparent ? "text-background" : "text-foreground"}`} aria-label={open ? "Fechar menu" : "Abrir menu"}>
           {open ? <X /> : <Menu />}
         </button>
       </div>
