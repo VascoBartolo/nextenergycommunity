@@ -6,9 +6,10 @@ import { Button } from "@/components/ui/button";
 
 const links = [
   { to: "/", label: "Início" },
-  { to: "/consumidor", label: "Membro Consumidor" },
-  { to: "/produtor", label: "Membro Produtor" },
+  { to: "/consumidor", label: "Consumidor" },
+  { to: "/produtor", label: "Produtor" },
   { to: "/o-nosso-papel", label: "O Nosso Papel" },
+  { to: "/a-nossa-missao", label: "A Nossa Missão" },
   { to: "/contact", label: "Contactos" },
 ];
 
@@ -33,7 +34,11 @@ const Navbar = () => {
               to={l.to}
               end={l.to === "/"}
               className={({ isActive }) =>
-                `relative px-4 py-2 text-sm font-medium font-sub transition-colors ${isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground"}`
+                `relative px-4 py-2 text-sm font-medium font-sub transition-colors ${
+                  isActive
+                    ? scrolled ? "text-foreground" : "text-background"
+                    : scrolled ? "text-muted-foreground hover:text-foreground" : "text-background/75 hover:text-background"
+                }`
               }
             >
               {({ isActive }) => (
@@ -50,7 +55,7 @@ const Navbar = () => {
             <NavLink to="/contact">Aderir à comunidade</NavLink>
           </Button>
         </div>
-        <button onClick={() => setOpen(!open)} className="lg:hidden p-2" aria-label={open ? "Fechar menu" : "Abrir menu"}>
+        <button onClick={() => setOpen(!open)} className={`lg:hidden p-2 transition-colors ${scrolled ? "text-foreground" : "text-background"}`} aria-label={open ? "Fechar menu" : "Abrir menu"}>
           {open ? <X /> : <Menu />}
         </button>
       </div>

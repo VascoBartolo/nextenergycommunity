@@ -9,6 +9,7 @@ import Producer from "./pages/Producer.tsx";
 import Consumer from "./pages/Consumer.tsx";
 import Contact from "./pages/Contact.tsx";
 import OurRole from "./pages/OurRole.tsx";
+import Mission from "./pages/Mission.tsx";
 import PRRProjeto from "./pages/PRRProjeto.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/produtor" element={<Producer />} />
           <Route path="/consumidor" element={<Consumer />} />
           <Route path="/o-nosso-papel" element={<OurRole />} />
+          <Route path="/a-nossa-missao" element={<Mission />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/prr" element={<PRRProjeto />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

@@ -45,7 +45,7 @@ const memberTypes = [
   {
     icon: Home,
     to: "/consumidor",
-    eyebrow: "Membro Consumidor",
+    eyebrow: "Consumidor",
     title: "Quer poupar na fatura de eletricidade?",
     desc: "Receba energia renovável partilhada pela comunidade e um desconto automático na fatura — sem instalar qualquer equipamento.",
     points: ["Sem custo de adesão", "Desconto automático na fatura", "Mantém a sua comercializadora"],
@@ -54,7 +54,7 @@ const memberTypes = [
   {
     icon: Factory,
     to: "/produtor",
-    eyebrow: "Membro Produtor",
+    eyebrow: "Produtor",
     title: "Tem espaço para produzir energia?",
     desc: "Instale painéis sem investimento inicial, pague apenas o que consome e rentabilize o excedente partilhado com a comunidade.",
     points: ["0% de investimento inicial", "Paga só o que consome", "Rentabiliza o excedente"],
@@ -66,9 +66,11 @@ const Index = () => {
   return (
     <Layout>
       {/* HERO */}
-      <section className="relative overflow-hidden bg-dot-grid flex flex-col min-h-[calc(100svh-5rem)]">
-        <div className="absolute inset-0 bg-radial-glow pointer-events-none" />
-        <div className="container relative flex flex-1 flex-col justify-center py-6 lg:py-16">
+      <section className="relative -mt-20 overflow-hidden bg-dot-grid flex flex-col min-h-[100svh]">
+        <img src="bg-cover-2.jpg" alt="O nosso papel" className="absolute inset-0 w-full h-full object-cover" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[hsl(220,25%,8%)] via-[hsl(220,25%,8%,0.45)] to-[hsl(220,25%,8%,0.25)]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[hsl(220,25%,8%,0.6)] via-transparent to-transparent" />
+        <div className="container relative flex flex-1 flex-col justify-center pt-20 py-6 lg:py-16">
           <div className="flex flex-1 flex-col gap-4 sm:gap-6 lg:flex-none lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
             {/* Intro text */}
             <div className="order-1 lg:order-none lg:col-start-1 lg:row-start-1 space-y-4 sm:space-y-5 lg:space-y-7 animate-fade-in-up">
@@ -76,10 +78,10 @@ const Index = () => {
                 <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse-glow shrink-0" />
                 Comunidades de Energia Renovável
               </span>
-              <h1 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl leading-[1.08] sm:leading-[1.06] tracking-tight">
+              <h1 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl leading-[1.08] sm:leading-[1.06] tracking-tight text-background">
                 Produza, consuma e partilhe <span className="text-gradient-brand">energia renovável</span> com a sua comunidade.
               </h1>
-              <p className="text-base lg:text-lg text-muted-foreground max-w-xl font-body leading-snug sm:leading-relaxed">
+              <p className="text-base lg:text-lg text-muted-foreground max-w-xl font-body leading-snug sm:leading-relaxed text-background text-primary-foreground">
                 A Nextenergy Community desenvolve e gere Comunidades de Energia Renovável, ligando quem produz a quem consome — energia local, mais limpa e mais barata para todos.
               </p>
             </div>
@@ -104,7 +106,7 @@ const Index = () => {
                 asChild
                 variant="brand-outline"
                 size="xl"
-                className="h-12 sm:h-14 flex-1 sm:flex-none min-w-0 px-4 sm:px-10 text-sm sm:text-base whitespace-nowrap leading-tight"
+                className="h-12 sm:h-14 flex-1 sm:flex-none min-w-0 px-4 sm:px-10 text-sm sm:text-base whitespace-nowrap leading-tight text-primary bg-background"
               >
                 <a href="#como-funciona">Como funciona</a>
               </Button>
@@ -255,7 +257,7 @@ const Index = () => {
               <ScrollText size={14} /> Do estudo à gestão
             </div>
             <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight">
-              Da viabilidade à gestão, a Nextenergy trata de tudo.
+              Da viabilidade à gestão, a Nextenergy Community trata de tudo.
             </h2>
             <p className="mt-4 text-muted-foreground font-body leading-relaxed max-w-xl">
               Estudo de viabilidade, dimensionamento, instalação dos painéis, licenciamento e gestão contínua da comunidade — com uma plataforma que mostra a produção, a poupança e o impacto de cada membro.
@@ -277,6 +279,22 @@ const Index = () => {
               </div>
             ))}
           </div>
+        </ScrollReveal>
+      </section>
+
+      {/* A NOSSA MISSÃO */}
+      <section className="container py-12 lg:py-20">
+        <ScrollReveal className="max-w-2xl">
+          <div className="text-xs font-sub font-semibold uppercase tracking-widest text-primary mb-3">A nossa missão</div>
+          <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight">
+            Em comunidade, a energia não se divide <span className="text-gradient-brand">— partilha-se</span>.
+          </h2>
+          <p className="mt-4 text-muted-foreground font-body leading-relaxed">
+            Acreditamos que a energia renovável deve beneficiar quem vive à nossa volta — não apenas quem pode investir. Por isso assumimos o investimento, eliminamos as barreiras e devolvemos valor ao território.
+          </p>
+          <Button asChild variant="brand-outline" size="lg" className="mt-6">
+            <Link to="/a-nossa-missao">Conhecer a nossa missão <ArrowRight /></Link>
+          </Button>
         </ScrollReveal>
       </section>
 
