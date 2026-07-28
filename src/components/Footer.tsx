@@ -14,14 +14,14 @@ const Footer = () => (
           Renovável (CER) e autoconsumo coletivo. Produza, consuma e partilhe energia
           100% renovável com a sua comunidade.
         </p>
-        <a
+        {/* <a
           href="https://www.gruponextenergy.pt/"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 text-xs font-sub uppercase tracking-wider text-background/50 hover:text-primary transition-colors"
         >
           Uma empresa do Grupo Nextenergy
-        </a>
+        </a> */}
       </div>
       <div>
         <h4 className="font-sub font-semibold mb-4 text-sm tracking-wider uppercase">Navegação</h4>

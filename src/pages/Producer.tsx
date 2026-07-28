@@ -29,7 +29,7 @@ const advantages = [
   { icon: Receipt, title: "Paga apenas o que consome", desc: "A energia que produz e consome localmente é descontada diretamente na sua fatura de eletricidade." },
   { icon: TrendingUp, title: "Rentabilização da energia", desc: "Os excedentes de produção são partilhados com a comunidade, gerando retorno pelo espaço disponibilizado." },
   { icon: Share2, title: "Partilha de energia", desc: "A energia excedente beneficia os restantes membros da comunidade, promovendo a autonomia energética coletiva." },
-  { icon: Wrench, title: "Dimensionamento e instalação", desc: "A Nextenergy trata de todo o processo técnico — do estudo de viabilidade à instalação dos painéis." },
+  { icon: Wrench, title: "Dimensionamento e instalação", desc: "A Nextenergy Community trata de todo o processo técnico — do estudo de viabilidade à instalação dos painéis." },
 ];
 
 const Producer = () => (
