@@ -76,20 +76,37 @@ const Mission = () => (
 
     {/* A NOSSA HISTÓRIA */}
     <section className="container py-12 lg:py-16">
-      <ScrollReveal className="max-w-2xl mb-10">
-        <div className="text-xs font-sub font-semibold uppercase tracking-widest text-primary mb-3">A Nossa História</div>
-        <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight">
-          Uma visão antiga. Uma oportunidade <span className="text-gradient-brand">nova</span>.
-        </h2>
-        <p className="mt-4 text-muted-foreground font-body leading-relaxed">
-          A criação da Nextenergy Community resulta de uma visão que acompanha a empresa há vários anos. Sempre acreditámos que a produção local de energia e a sua partilha poderiam transformar a forma como as comunidades consomem eletricidade.
-        </p>
-        <p className="mt-4 text-muted-foreground font-body leading-relaxed">
-          Contudo, apenas com a evolução do enquadramento legal e regulamentar passou a ser possível concretizar esta visão. Hoje existem regras claras para o licenciamento, gestão e faturação das comunidades de energia — criando as condições para desenvolver projetos sólidos, transparentes e sustentáveis.
-        </p>
+      <ScrollReveal className="mb-10">
+        <div className="flex flex-row gap-6">
+          <div>
+            <div className="text-xs font-sub font-semibold uppercase tracking-widest text-primary mb-3">A Nossa História</div>
+            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight">
+              Uma visão antiga. Uma oportunidade <span className="text-gradient-brand">nova</span>.
+            </h2>
+            <p className="mt-4 text-muted-foreground font-body leading-relaxed">
+              A criação da Nextenergy Community resulta de uma visão que acompanha a empresa há vários anos. Sempre acreditámos que a produção local de energia e a sua partilha poderiam transformar a forma como as comunidades consomem eletricidade.
+            </p>
+            <p className="mt-4 text-muted-foreground font-body leading-relaxed">
+              Contudo, apenas com a evolução do enquadramento legal e regulamentar passou a ser possível concretizar esta visão. Hoje existem regras claras para o licenciamento, gestão e faturação das comunidades de energia — criando as condições para desenvolver projetos sólidos, transparentes e sustentáveis.
+            </p>
+          </div>
+          <div className="relative rounded-3xl overflow-hidden p-8 md:p-10 bg-card border border-border shadow-soft">
+            <div className="flex flex-col md:flex-row gap-6 items-start">
+              <div className="w-16 h-16 rounded-2xl bg-gradient-brand flex items-center justify-center shrink-0 text-primary-foreground">
+                <Lightbulb size={30} />
+              </div>
+              <div>
+                <h3 className="font-display text-xl font-bold mb-2">De ideia a realidade</h3>
+                <p className="text-muted-foreground font-body leading-relaxed">
+                  Foi este novo contexto que nos permitiu transformar uma convicção antiga numa realidade capaz de beneficiar produtores, consumidores e as comunidades onde estamos presentes.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </ScrollReveal>
 
-      <ScrollReveal delay={100} className="relative rounded-3xl overflow-hidden p-8 md:p-10 bg-card border border-border shadow-soft">
+      {/* <ScrollReveal delay={100} className="relative rounded-3xl overflow-hidden p-8 md:p-10 bg-card border border-border shadow-soft">
         <div className="flex flex-col md:flex-row gap-6 items-start">
           <div className="w-16 h-16 rounded-2xl bg-gradient-brand flex items-center justify-center shrink-0 text-primary-foreground">
             <Lightbulb size={30} />
@@ -101,7 +118,7 @@ const Mission = () => (
             </p>
           </div>
         </div>
-      </ScrollReveal>
+      </ScrollReveal> */}
     </section>
 
     {/* O NOSSO MODELO — dark band */}

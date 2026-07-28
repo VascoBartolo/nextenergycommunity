@@ -74,8 +74,8 @@ const Index = () => {
           <div className="flex flex-1 flex-col gap-4 sm:gap-6 lg:flex-none lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
             {/* Intro text */}
             <div className="order-1 lg:order-none lg:col-start-1 lg:row-start-1 space-y-4 sm:space-y-5 lg:space-y-7 animate-fade-in-up">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-card border border-primary/20 text-[11px] sm:text-xs font-sub font-semibold tracking-wider uppercase shadow-soft">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse-glow shrink-0" />
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-sub font-semibold tracking-wider uppercase text-white/90">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse-glow" />
                 Comunidades de Energia Renovável
               </span>
               <h1 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl leading-[1.08] sm:leading-[1.06] tracking-tight text-background">

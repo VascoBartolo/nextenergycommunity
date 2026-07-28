@@ -106,17 +106,35 @@ const OurRole = () => (
 
     {/* WHAT IS AN EGAC */}
     <section className="container py-12 lg:py-16">
-      <ScrollReveal className="max-w-2xl mb-10">
-        <div className="text-xs font-sub font-semibold uppercase tracking-widest text-primary mb-3">EGAC</div>
-        <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight">
-          O que é uma <span className="text-gradient-brand">EGAC</span>?
-        </h2>
-        <p className="mt-4 text-muted-foreground font-body leading-relaxed">
-          A Entidade Gestora de Autoconsumo Coletivo (EGAC) é a entidade responsável pela organização, gestão e operação de uma comunidade de energia renovável. Define os coeficientes de partilha, gere a relação com o operador de rede e assegura o cumprimento da regulamentação aplicável — ao abrigo do Decreto-Lei 15/2022.
-        </p>
+      <ScrollReveal className="mb-10">
+        <div className="flex flex-row gap-6">
+          <div className="flex-1">
+            <div className="text-xs font-sub font-semibold uppercase tracking-widest text-primary mb-3">EGAC</div>
+            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight">
+              O que é uma <span className="text-gradient-brand">EGAC</span>?
+            </h2>
+            <p className="mt-4 text-muted-foreground font-body leading-relaxed">
+              A Entidade Gestora de Autoconsumo Coletivo (EGAC) é a entidade responsável pela organização, gestão e operação de uma comunidade de energia renovável. Define os coeficientes de partilha, gere a relação com o operador de rede e assegura o cumprimento da regulamentação aplicável — ao abrigo do Decreto-Lei 15/2022.
+            </p>
+
+          </div>
+          <div className="relative rounded-3xl overflow-hidden p-8 md:p-10 bg-card border border-border shadow-soft flex-1">
+            <div className="flex flex-col md:flex-row gap-6 items-start">
+          <div className="w-16 h-16 rounded-2xl bg-gradient-brand flex items-center justify-center shrink-0 text-primary-foreground">
+            <Lightbulb size={30} />
+          </div>
+          <div>
+            <h3 className="font-display text-xl font-bold mb-2">A Nextenergy Community como EGAC</h3>
+            <p className="text-muted-foreground font-body leading-relaxed">
+              Como EGAC, a Nextenergy Community assume a totalidade da gestão da comunidade de energia em nome dos seus membros. Desde o estudo inicial de viabilidade até à operação diária da comunidade, tratamos de todo o processo — técnico, legal e administrativo — para que cada membro se concentre apenas no que importa: produzir ou poupar energia.
+            </p>
+          </div>
+        </div>
+          </div>
+        </div>
       </ScrollReveal>
 
-      <ScrollReveal delay={100} className="relative rounded-3xl overflow-hidden p-8 md:p-10 bg-card border border-border shadow-soft">
+      {/* <ScrollReveal delay={100} className="relative rounded-3xl overflow-hidden p-8 md:p-10 bg-card border border-border shadow-soft">
         <div className="flex flex-col md:flex-row gap-6 items-start">
           <div className="w-16 h-16 rounded-2xl bg-gradient-brand flex items-center justify-center shrink-0 text-primary-foreground">
             <Lightbulb size={30} />
@@ -128,7 +146,7 @@ const OurRole = () => (
             </p>
           </div>
         </div>
-      </ScrollReveal>
+      </ScrollReveal> */}
     </section>
 
     {/* PROCESS — dark band */}
