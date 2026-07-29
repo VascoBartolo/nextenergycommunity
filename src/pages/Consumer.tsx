@@ -52,7 +52,7 @@ const Consumer = () => (
             Qualquer pessoa singular ou coletiva que recebe uma parte da energia renovável produzida pela comunidade, beneficiando de um desconto automático na sua fatura de eletricidade — sem a necessidade de instalar qualquer equipamento.
           </p>
           <Button asChild variant="brand" size="xl">
-            <Link to="/contact">Quero poupar na fatura <ArrowRight /></Link>
+            <Link to="/contact?perfil=consumidor">Quero poupar na fatura <ArrowRight /></Link>
           </Button>
         </div>
       </div>
@@ -148,7 +148,7 @@ const Consumer = () => (
           <h2 className="font-display text-3xl md:text-4xl font-bold leading-tight">Comece a poupar sem mudar nada.</h2>
           <p className="font-body opacity-90">Sem obras, sem custos de adesão e sem mudar de comercializadora. O benefício aparece na sua fatura.</p>
           <Button asChild size="xl" className="bg-background text-primary font-semibold shadow-soft hover:-translate-y-0.5 transition-transform duration-300 hover:bg-background">
-            <Link to="/contact">Aderir à comunidade <ArrowRight /></Link>
+            <Link to="/contact?perfil=consumidor">Aderir à comunidade <ArrowRight /></Link>
           </Button>
         </div>
       </ScrollReveal>

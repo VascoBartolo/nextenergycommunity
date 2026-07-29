@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -10,6 +11,11 @@ import { toast } from "sonner";
 
 const profiles = ["Quero ser produtor", "Quero ser consumidor", "Entidade pública", "Outro"];
 
+const profileParamMap: Record<string, string> = {
+  produtor: profiles[0],
+  consumidor: profiles[1],
+};
+
 const contactCards = [
   { icon: Mail, title: "Email", value: "geral@nextcommunity.pt", href: "mailto:geral@nextcommunity.pt" },
   { icon: Globe, title: "Website", value: "www.nextcommunity.pt", href: "https://www.nextcommunity.pt" },
@@ -18,8 +24,10 @@ const contactCards = [
 ];
 
 const Contact = () => {
+  const [searchParams] = useSearchParams();
+  const initialProfile = profileParamMap[searchParams.get("perfil") ?? ""] ?? profiles[1];
   const [sending, setSending] = useState(false);
-  const [profile, setProfile] = useState<string>(profiles[1]);
+  const [profile, setProfile] = useState<string>(initialProfile);
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -106,7 +114,9 @@ const Contact = () => {
                   onClick={() => setProfile(p)}
                   className={`px-4 py-2 rounded-full text-sm font-sub border transition-colors ${
                     profile === p
-                      ? "bg-gradient-brand text-primary-foreground border-transparent"
+                      ? p === profiles[0]
+                        ? "bg-gradient-eco text-eco-foreground border-transparent"
+                        : "bg-gradient-brand text-primary-foreground border-transparent"
                       : "bg-background border-border text-muted-foreground hover:border-primary/40"
                   }`}
                 >

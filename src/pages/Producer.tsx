@@ -60,7 +60,7 @@ const Producer = () => (
             Qualquer pessoa singular ou coletiva que instala e opera uma unidade de produção de energia renovável — painéis fotovoltaicos — num espaço da sua propriedade ou gestão, e que partilha o excedente dessa produção com os restantes membros da comunidade.
           </p>
           <Button asChild variant="brand" size="xl" className="bg-gradient-eco shadow-eco">
-            <Link to="/contact">Quero produzir energia <ArrowRight /></Link>
+            <Link to="/contact?perfil=produtor">Quero produzir energia <ArrowRight /></Link>
           </Button>
         </div>
       </div>
@@ -204,7 +204,7 @@ const Producer = () => (
           <h2 className="font-display text-3xl md:text-4xl font-bold leading-tight">Tem um espaço com potencial solar?</h2>
           <p className="font-body opacity-90">Fazemos o estudo de viabilidade sem compromisso e tratamos de todo o processo, do dimensionamento à instalação.</p>
           <Button asChild size="xl" className="bg-background text-eco font-semibold shadow-soft hover:-translate-y-0.5 transition-transform duration-300 hover:bg-background">
-            <Link to="/contact">Pedir estudo de viabilidade <ArrowRight /></Link>
+            <Link to="/contact?perfil=produtor">Pedir estudo de viabilidade <ArrowRight /></Link>
           </Button>
         </div>
       </ScrollReveal>
