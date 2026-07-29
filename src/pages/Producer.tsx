@@ -156,7 +156,7 @@ const Producer = () => (
       <ScrollReveal className="max-w-2xl mb-12">
         <div className="text-xs font-sub font-semibold uppercase tracking-widest text-eco mb-3">Requisitos</div>
         <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight">
-          Ser produtor é mais do que ter um <span className="text-primary">telhado disponível</span>.
+          Ser produtor é mais do que ter um <span className="text-gradient-eco">telhado disponível</span>.
         </h2>
         <p className="mt-5 text-muted-foreground font-body leading-relaxed">
           Nem todos os espaços reúnem as condições necessárias para integrar uma comunidade de energia enquanto produtor. Antes de qualquer adesão, a nossa equipa realiza uma avaliação técnica e mecânica ao local — para averiguar a existência de capacidade elétrica significativa para partilhar com os restantes membros.
@@ -183,7 +183,7 @@ const Producer = () => (
       </div>
       <ScrollReveal delay={400} className="mt-10 relative rounded-3xl overflow-hidden p-8 md:p-10 bg-card border border-border shadow-soft">
         <div className="flex flex-col md:flex-row gap-6 items-start">
-          <div className="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center shrink-0 text-primary-foreground">
+          <div className="w-16 h-16 rounded-2xl bg-gradient-eco flex items-center justify-center shrink-0 text-eco-foreground">
             <Lightbulb size={30} />
           </div>
           <div>
