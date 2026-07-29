@@ -21,15 +21,32 @@ const Contact = () => {
   const [sending, setSending] = useState(false);
   const [profile, setProfile] = useState<string>(profiles[1]);
 
-  const onSubmit = (e: React.FormEvent) => {
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSending(true);
-    setTimeout(() => {
-      setSending(false);
+    const form = e.target as HTMLFormElement;
+    try {
+      const res = await fetch("https://fn-nextenergy-contact.azurewebsites.net/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: (form.querySelector("#name") as HTMLInputElement).value,
+          email: (form.querySelector("#email") as HTMLInputElement).value,
+          phone: (form.querySelector("#phone") as HTMLInputElement).value || undefined,
+          location: (form.querySelector("#location") as HTMLInputElement).value || undefined,
+          profile,
+          message: (form.querySelector("#message") as HTMLTextAreaElement).value,
+        }),
+      });
+      if (!res.ok) throw new Error("Erro ao enviar");
       toast.success("Mensagem enviada. A nossa equipa entrará em contacto brevemente.");
-      (e.target as HTMLFormElement).reset();
+      form.reset();
       setProfile(profiles[1]);
-    }, 800);
+    } catch {
+      toast.error("Não foi possível enviar a mensagem. Tente novamente mais tarde.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
