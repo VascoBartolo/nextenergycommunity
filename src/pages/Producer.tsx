@@ -15,6 +15,10 @@ import {
   Wrench,
   Sun,
   Zap,
+  ClipboardCheck,
+  MapPin,
+  Handshake,
+  Lightbulb,
 } from "lucide-react";
 
 const canBe = [
@@ -30,6 +34,13 @@ const advantages = [
   { icon: TrendingUp, title: "Rentabilização da energia", desc: "Os excedentes de produção são partilhados com a comunidade, gerando retorno pelo espaço disponibilizado." },
   { icon: Share2, title: "Partilha de energia", desc: "A energia excedente beneficia os restantes membros da comunidade, promovendo a autonomia energética coletiva." },
   { icon: Wrench, title: "Dimensionamento e instalação", desc: "A Nextenergy Community trata de todo o processo técnico — do estudo de viabilidade à instalação dos painéis." },
+];
+
+const requirements = [
+  { icon: ClipboardCheck, title: "Avaliação técnica e mecânica", desc: "Análise das condições estruturais do imóvel ou terreno — cobertura, orientação, área útil e integridade mecânica — para garantir uma instalação segura e eficiente." },
+  { icon: Zap, title: "Capacidade elétrica significativa", desc: "Verificamos se o local tem potencial para gerar um excedente relevante de energia. Sem capacidade real para partilhar, não há comunidade — há apenas autoconsumo individual." },
+  { icon: MapPin, title: "Localização compatível", desc: "O espaço deve situar-se dentro da área geográfica da comunidade de energia para que a partilha entre membros seja possível." },
+  { icon: Handshake, title: "Compromisso com a comunidade", desc: "Ser produtor implica aderir a um modelo de partilha justa e transparente. O produtor mantém a sua autonomia, mas contribui ativamente para o coletivo." },
 ];
 
 const Producer = () => (
@@ -138,6 +149,51 @@ const Producer = () => (
           </ScrollReveal>
         ))}
       </div>
+    </section>
+
+    {/* REQUISITOS */}
+    <section className="container py-12 lg:py-20">
+      <ScrollReveal className="max-w-2xl mb-12">
+        <div className="text-xs font-sub font-semibold uppercase tracking-widest text-eco mb-3">Requisitos</div>
+        <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight">
+          Ser produtor é mais do que ter um <span className="text-primary">telhado disponível</span>.
+        </h2>
+        <p className="mt-5 text-muted-foreground font-body leading-relaxed">
+          Nem todos os espaços reúnem as condições necessárias para integrar uma comunidade de energia enquanto produtor. Antes de qualquer adesão, a nossa equipa realiza uma avaliação técnica e mecânica ao local — para averiguar a existência de capacidade elétrica significativa para partilhar com os restantes membros.
+        </p>
+        <p className="mt-3 text-muted-foreground font-body leading-relaxed">
+          É precisamente daí que nasce o verdadeiro sentido de comunidade: energia que sobra a quem produz, transforma-se em benefício para quem consome.
+        </p>
+      </ScrollReveal>
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {requirements.map((r, i) => (
+          <ScrollReveal
+            key={r.title}
+            delay={i * 90}
+            className="group relative p-7 rounded-2xl bg-card border border-border hover:border-eco/50 transition-all duration-500 hover:-translate-y-1 hover:shadow-soft overflow-hidden"
+          >
+            <div className="absolute top-0 left-7 right-7 h-1 bg-gradient-eco rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="w-12 h-12 rounded-xl bg-gradient-eco flex items-center justify-center mb-5 text-eco-foreground group-hover:scale-110 transition-transform duration-500">
+              <r.icon size={22} />
+            </div>
+            <h3 className="font-display text-lg font-semibold mb-2">{r.title}</h3>
+            <p className="text-muted-foreground text-sm font-body leading-relaxed">{r.desc}</p>
+          </ScrollReveal>
+        ))}
+      </div>
+      <ScrollReveal delay={400} className="mt-10 relative rounded-3xl overflow-hidden p-8 md:p-10 bg-card border border-border shadow-soft">
+        <div className="flex flex-col md:flex-row gap-6 items-start">
+          <div className="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center shrink-0 text-primary-foreground">
+            <Lightbulb size={30} />
+          </div>
+          <div>
+            <h3 className="font-display text-xl font-bold mb-2">Cada caso é único</h3>
+            <p className="text-muted-foreground font-body leading-relaxed">
+              Cada avaliação é feita individualmente pela nossa equipa técnica — sem custos e sem compromisso. Se o seu espaço reunir as condições necessárias, tratamos de tudo o resto: projeto, licenciamento, instalação e gestão.
+            </p>
+          </div>
+        </div>
+      </ScrollReveal>
     </section>
 
     {/* CTA */}
