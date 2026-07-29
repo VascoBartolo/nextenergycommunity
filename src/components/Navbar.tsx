@@ -68,7 +68,7 @@ const Navbar = () => {
       {/* Mobile menu — always mounted so it animates both open and closed */}
       <div
         className={`lg:hidden overflow-hidden transition-[max-height,opacity] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-          open ? "max-h-96 opacity-100" : "max-h-0 opacity-0 pointer-events-none"
+          open ? "max-h-[32rem] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
         }`}
         aria-hidden={!open}
       >

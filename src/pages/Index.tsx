@@ -273,9 +273,9 @@ const Index = () => {
               { k: "Licenciamento", v: "Todo o processo legal" },
               { k: "Gestão", v: "Plataforma e apoio contínuo" },
             ].map((b) => (
-              <div key={b.k} className="p-5 rounded-2xl bg-background border border-border">
+              <div key={b.k} className="p-5 rounded-2xl bg-background border border-border min-w-0">
                 <div className="text-xs font-sub uppercase tracking-wider text-primary">{b.k}</div>
-                <div className="mt-1 text-sm font-body text-muted-foreground">{b.v}</div>
+                <div className="mt-1 text-sm font-body text-muted-foreground break-words">{b.v}</div>
               </div>
             ))}
           </div>
